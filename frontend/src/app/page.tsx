@@ -1,0 +1,18 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function RootIndex() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/dashboard');
+  }, [router]);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="w-8 h-8 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin"></div>
+    </div>
+  );
+}
