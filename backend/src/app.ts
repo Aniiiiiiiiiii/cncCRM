@@ -9,6 +9,7 @@ import { AppError } from './utils/appError';
 import { env } from './config/env';
 
 const app = express();
+app.set('trust proxy', 1); 
 
 // 1) Security Middlewares
 app.use(helmet());
