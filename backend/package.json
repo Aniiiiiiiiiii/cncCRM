@@ -4,7 +4,7 @@
   "description": "Enterprise-grade CRM Backend for Code N Clicks IT Solutions",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "dev": "nodemon --watch src -e ts --exec ts-node src/server.ts",
     "prisma:generate": "prisma generate",
@@ -29,10 +29,7 @@
     "winston": "^3.13.0",
     "zod": "^3.23.8",
     "typescript": "^5.9.3",
-    "prisma": "^5.22.0"
-
-  },
-  "devDependencies": {
+    "prisma": "^5.22.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/compression": "^1.7.5",
     "@types/cors": "^2.8.17",
@@ -41,7 +38,9 @@
     "@types/morgan": "^1.9.9",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.12.12",
-    "@types/nodemailer": "^6.4.15",
+    "@types/nodemailer": "^6.4.15"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2"
   }
