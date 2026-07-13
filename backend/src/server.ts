@@ -11,18 +11,33 @@ const server = http.createServer(app);
 export const io = initSocket(server);
 
 // Verify database connection on startup
+// async function startServer() {
+//   try {
+//     await prisma.$connect();
+//     logger.info('🔌 Database connection established successfully.');
+
+//     const PORT = env.PORT || 5000;
+//     server.listen(PORT, () => {
+//       logger.info(`🚀 Code N Clicks CRM server running on port ${PORT} in ${env.NODE_ENV} mode.`);
+//     });
+//   } catch (error) {
+//     logger.error('💥 Database connection failed:', error);
+//     process.exit(1);
+//   }
+// }
+
 async function startServer() {
   try {
-    await prisma.$connect();
-    logger.info('🔌 Database connection established successfully.');
+    // await prisma.$connect();   // <-- temporarily comment
 
-    const PORT = env.PORT || 5000;
+    const PORT = process.env.PORT || 5000;
+
     server.listen(PORT, () => {
-      logger.info(`🚀 Code N Clicks CRM server running on port ${PORT} in ${env.NODE_ENV} mode.`);
+      console.log("SERVER STARTED");
     });
-  } catch (error) {
-    logger.error('💥 Database connection failed:', error);
-    process.exit(1);
+
+  } catch (err) {
+    console.error(err);
   }
 }
 
