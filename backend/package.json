@@ -4,7 +4,7 @@
   "description": "Enterprise-grade CRM Backend for Code N Clicks IT Solutions",
   "main": "dist/server.js",
   "scripts": {
-    "build": "prisma generate && tsc",
+    "build": "prisma generate && prisma db push && tsc",
     "start": "node dist/server.js",
     "dev": "nodemon --watch src -e ts --exec ts-node src/server.ts",
     "prisma:generate": "prisma generate",
